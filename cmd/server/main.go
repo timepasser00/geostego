@@ -6,7 +6,6 @@ import (
 	"image/png"
 	"net/http"
 	"os"
-
 	"github.com/gin-gonic/gin"
 	"github.com/timepasser00/geostego/pkg/stego"
 )
