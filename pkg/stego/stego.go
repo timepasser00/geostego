@@ -8,7 +8,7 @@ import (
 	"image/draw"
 )
 
-var errMessageTooLarge = errors.New("message is too large for this image")
+var ErrMessageTooLarge = errors.New("message is too large for this image")
 
 var errHeaderNotFound = errors.New("header not found in the image")
 var errInsfficientMessage = errors.New("message not complete")
@@ -31,7 +31,7 @@ func Encode(img image.Image, msg []byte) (image.Image, error) {
 	bitsRequired := len(data) * 8
 
 	if bitsRequired > bitsAvailable {
-		return nil, errMessageTooLarge
+		return nil, ErrMessageTooLarge
 	}
 
 	modifiedImg := image.NewRGBA(bounds)

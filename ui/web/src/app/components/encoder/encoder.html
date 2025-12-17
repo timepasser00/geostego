@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="panel-header">
+    <span class="status-dot"></span> OPERATION: LOCK
+  </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <label>SOURCE IMAGE (PNG)</label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/png">
+    </div>
+
+    <div class="input-group">
+      <label>CLASSIFIED MESSAGE</label>
+      <textarea [value]="message()" (input)="onMessageChange($event)" rows="5" placeholder="Enter secrets here..."></textarea>
+    </div>
+
+    <button (click)="onEncode()" [disabled]="!selectedFile || !message() || isLoading()">
+      {{ isLoading() ? '[ ENCRYPTING... ]' : '[ ENCODE & DOWNLOAD ]' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+/* The Decoder has unique "Result" boxes for the revealed secret */
+
+.result-area {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px dashed;
+  background: rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.result-area code {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  word-break: break-all; /* Ensure long secrets don't overflow */
+}
+
+.result-area .label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Success State (Green) */
+.result-area.success {
+  border-color: #00ff41;
+  color: #00ff41;
+}
+
+/* Error State (Red) */
+.result-area.error {
+  border-color: #ff4141;
+  color: #ff4141;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,29 @@
+<div class="panel">
+  <div class="panel-header">
+    <span class="status-dot red"></span> OPERATION: UNLOCK
+  </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <label>STEGO ASSET (PNG)</label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/png">
+    </div>
+
+    <button (click)="onDecode()" [disabled]="!selectedFile || isLoading()" class="btn-decode">
+       {{ isLoading() ? '[ DECRYPTING... ]' : '[ DECODE ASSET ]' }}
+    </button>
+
+    @if (decodedMessage()) {
+      <div class="result-area success">
+        <p class="label">DECRYPTED PAYLOAD:</p>
+        <code>{{ decodedMessage() }}</code>
+      </div>
+    }
+    
+    @if (errorMessage()) {
+      <div class="result-area error">
+        <p class="label">ACCESS DENIED:</p>
+        <code>{{ errorMessage() }}</code>
+      </div>
+    }
+  </div>
+</div> 
